@@ -12,6 +12,8 @@ const custom_alert = document.querySelector(".alert");
 
 //PAGE
 
+const variable = "XD LOLOLOL"
+
 radioBtns.forEach((radio) => {
 	radio.addEventListener("change", (e) => {
 		if (e.target.id === "color") {
@@ -137,4 +139,43 @@ downloadBtn.addEventListener("click", () => {
 	link.href = canvas.toDataURL();
 	link.click();
 	link.delete;
+});
+
+// LLONGART @cicd-test
+//Toggle button: navbar-mobile toggler 
+document.addEventListener("DOMContentLoaded", () => {
+    const toggleButton = document.querySelector(".navbar__toggle-btn");
+    const mobileMenu = document.querySelector(".navbar__mobile-menu");
+    const imageIcon = document.querySelector("#navbar__toggle-icon");
+    
+
+    //When none or "": show flex
+    //else: show none
+    const toggleMenu = () => {
+        mobileMenu.style.display = 
+            mobileMenu.style.display === "none" || mobileMenu.style.display === ""
+            ? "flex"
+            : "none";
+    };
+
+    // Change icon src after click on menu-mobile toggler
+    const changeIcon = () => {
+        //Concateno el protocolo usado con el host para luego concatener la imagen
+        //y asi obtener la url completa y pasarla al src de la imagen
+        const hostUrl = window.location.protocol+"//"+window.location.host;
+
+        imageIcon.src = imageIcon.src.includes("list.svg") ? 
+            hostUrl+"/static/img/three-dots-vertical.svg" : hostUrl+"/static/img/list.svg";
+    };
+
+    // Hides mobile menu when resize
+    const hideMenuResize = () => {
+        mobileMenu.style.display = "none";
+    }
+
+    // Listeners
+    toggleButton.addEventListener("click", toggleMenu);
+    toggleButton.addEventListener("click", changeIcon);
+    window.addEventListener("resize", hideMenuResize);
+    window.addEventListener("load", hideMenuResize);
 });
