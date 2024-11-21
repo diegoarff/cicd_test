@@ -12,6 +12,8 @@ const custom_alert = document.querySelector(".alert");
 
 //PAGE
 
+const variable = "XD LOLOLOL"
+
 radioBtns.forEach((radio) => {
 	radio.addEventListener("change", (e) => {
 		if (e.target.id === "color") {
